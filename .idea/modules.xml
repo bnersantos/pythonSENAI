@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/AplicacaoWEBDB.iml" filepath="$PROJECT_DIR$/.idea/AplicacaoWEBDB.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/pythonProjectSENAI.iml" filepath="$PROJECT_DIR$/.idea/pythonProjectSENAI.iml" />
+>>>>>>> c08d800cf0713211bf299ec5f734e65c3d7c4b10
     </modules>
   </component>
 </project>
