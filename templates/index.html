@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="cards_container">
+    <div class="cardinicio">
+        <h1>Bem-vindo à Empresa de Eletrônicos "TechStock &COPY;"!</h1>
+        <p>Na TechStock você encontra tudo o que precisa para imergir na tecnologia!</p>
+    </div>
+
+    {% for produto in lista_produtos %}
+    <div class="cards">
+        <p>{{ produto['nome'] }}</p>
+        <p>R$ {{ produto['preco'] | default(0) | round(2) }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<div>
+    <div class="pagination">
+        <button onclick="previousPage()">Anterior</button>
+        <span id="page-info">Página 1</span>
+        <button onclick="nextPage()">Próxima</button>
+    </div>
+</div>
+
+<script>
+    const itemsPerPage = 6; // Quantas pessoas por página
+    let currentPage = 1;
+    const cards = document.querySelectorAll('.cards');
+    const totalPages = Math.ceil(cards.length / itemsPerPage);
+
+    function showPage(page) {
+        cards.forEach((card, index) => {
+            card.style.display = (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) ? 'block' : 'none';
+        });
+        document.getElementById('page-info').textContent = `Página ${page}`;
+    }
+
+    function nextPage() {
+        if (currentPage < totalPages) {
+            currentPage++;
+            showPage(currentPage);
+        }
+    }
+
+    function previousPage() {
+        if (currentPage > 1) {
+            currentPage--;
+            showPage(currentPage);
+        }
+    }
+
+    showPage(currentPage); // Mostrar a primeira página inicialmente
+</script>
+
+{% endblock %}
