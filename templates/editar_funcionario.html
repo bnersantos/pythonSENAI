@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Funcionário</title>
+</head>
+<body>
+    <h1>Editar Funcionário</h1>
+    
+    <!-- Exibir mensagens de sucesso ou erro -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('editar_funcionario') }}">
+        <input type="hidden" name="id" value="{{ funcionario.id_funcionario }}">
+        
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" value="{{ funcionario.nome_funcionario }}" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="{{ funcionario.email_funcionario }}" required><br>
+
+        <label for="cargo">Cargo:</label>
+        <input type="text" name="cargo" id="cargo" value="{{ funcionario.cargo_funcionario }}" required><br>
+
+        <label for="cpf">CPF:</label>
+        <input type="text" name="cpf" id="cpf" value="{{ funcionario.cpf_funcionario }}" required><br>
+
+        <label for="telefone">Telefone:</label>
+        <input type="text" name="telefone" id="telefone" value="{{ funcionario.telefone_funcionario }}"><br>
+
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>

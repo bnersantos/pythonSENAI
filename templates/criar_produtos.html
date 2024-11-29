@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="cards">
+    <form action="{{ url_for('criar_produtos') }}" method="POST">
+            <h1>CADASTRO DE PRODUTOS</h1>
+            <label for="name">Nome do Produto:</label>
+            <input type="text" name="name" id="name" required>
+
+            <br>
+
+            <label for="preco">Preço:</label>
+            <input type="text" name="preco" id="preco" required>
+
+            <br>
+
+            <label for="descricao">Descrição:</label>
+            <input type="text" name="descricao" id="descricao">
+
+            <br>
+
+            <label for="validade">Validade:</label>
+            <input type="text" name="validade" id="validade">
+
+            <br>
+
+            <label for="garantia">Garantia:</label>
+            <input type="text" name="garantia" id="garantia">
+
+            <br>
+
+            <label for="peso">Peso:</label>
+            <input type="text" name="peso" id="peso">
+
+            <br>
+
+            <label for="medida">Medida:</label>
+            <input type="text" name="medida" id="medida">
+
+            <br>
+
+            <label for="id_categoria">ID Categoria:</label>
+            <input type="number" name="id_categoria" id="id_categoria">
+
+            <br>
+
+            <label for="id_fornecedor">ID Fornecedor:</label>
+            <input type="number" name="id_fornecedor" id="id_fornecedor">
+            <button type="submit">Cadastro</button>
+            <br><br>
+        </form>
+    <div class="vol">
+        <button><a href="{{ url_for ('produtos') }}"><strong>Voltar</strong></a></button>
+    </div>
+</div>
+{% endblock %}

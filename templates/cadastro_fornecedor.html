@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    <div class="cards3 center">
+          <form action="{{ url_for('criar_fornecedor') }}" method="POST">
+              <h1>CADASTRO DE FORNECEDOR:</h1>
+              <label for="username">Nome do Fornecedor:</label>
+              <input type="text" name="name" id="username" required>
+              <br>
+              <label for="email">Email:</label>
+              <input type="email" name="email" id="email">
+              <br>
+              <label for="telefone">Telefone:</label>
+              <input type="text" name="tel" id="telefone">
+              <br>
+              <button type="submit">Cadastrar</button>
+              <br><br>
+          </form>
+          <a href="{{ url_for('fornecedores') }}" ><button>Voltar</button></a>
+      </div>
+{% endblock %}

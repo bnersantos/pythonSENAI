@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="cards">
+    <form action="{{ url_for('editar_produtos', id=produto.id_produto) }}" method="POST">
+            <h1>EDIÇÃO DE PRODUTO</h1>
+
+            <label for="nome">Nome do Produto:</label>
+            <input type="text" name="nome" id="nome" value="{{ produto.nome_produto }}" required>
+
+            <br>
+
+            <label for="preco">Preço:</label>
+            <input type="text" name="preco" id="preco" value="{{ produto.preco_produto }}" required>
+
+            <br>
+
+            <label for="descricao">Descrição:</label>
+            <input type="text" name="descricao" id="descricao" value="{{ produto.descricao }}">
+
+            <br>
+
+            <label for="validade">Validade:</label>
+            <input type="text" name="validade" id="validade" value="{{ produto.validade_produto }}">
+
+            <br>
+
+            <label for="garantia">Garantia:</label>
+            <input type="text" name="garantia" id="garantia" value="{{ produto.garantia_produto }}">
+
+            <br>
+
+            <label for="peso">Peso:</label>
+            <input type="text" name="peso" id="peso" value="{{ produto.peso_produto }}">
+
+            <br>
+
+            <label for="medida">Medida:</label>
+            <input type="text" name="medida" id="medida" value="{{ produto.medida_produto }}">
+
+            <br>
+
+            <button type="submit">Atualizar</button>
+            <br><br>
+        </form>
+
+    <div class="vol">
+        <button><a href="{{ url_for('produtos') }}"><strong>Voltar</strong></a></button>
+    </div>
+</div>
+{% endblock %}

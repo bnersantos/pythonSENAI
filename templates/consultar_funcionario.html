@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<a href="{{ url_for('funcionarios') }}" class="btn"><strong>Voltar</strong></a>
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Cargo</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for funcionario in funcionarios %}
+            <tr>
+                <td>{{ funcionario.id }}</td>
+                <td>{{ funcionario.nome }}</td>
+                <td>{{ funcionario.cpf }}</td>
+                <td>{{ funcionario.email }}</td>
+                <td>{{ funcionario.telefone }}</td>
+                <td>{{ funcionario.cargo }}</td>
+                <td><a Class="btn-edit" href="{{ url_for('editar_funcionario', id=funcionario['id'])}}">Editar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <!-- Navegação da paginação -->
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="{{ url_for('listar_funcionarios', page=page-1) }}" class="btn">Anterior</a>
+        {% else %}
+            <span class="disabled">Anterior</span>
+        {% endif %}
+
+        <span>Página {{ page }} de {{ total_pages }}</span>
+
+        {% if page < total_pages %}
+            <a href="{{ url_for('listar_funcionarios', page=page+1) }}" class="btn">Próximo</a>
+        {% else %}
+            <span class="disabled">Próximo</span>
+        {% endif %}
+    </div>
+
+
+{% endblock %}
+

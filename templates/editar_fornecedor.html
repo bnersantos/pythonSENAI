@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="cards" xmlns="http://www.w3.org/1999/html">
+    <h1>Editar Fornecedor</h1>
+    <!-- Formulário para editar a pessoa via ID -->
+    <form method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="name" required>
+
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required><br>
+
+        <br>
+
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="tel">
+
+        <br>
+
+        <button type="submit">Editar</button>
+    </form>
+
+    <h2>Ou escolha da lista de pessoas:</h2>
+    <ul>
+        {% for pessoa in pessoas %}
+        <li>{{ pessoa.id }} - {{ pessoa.nome }} (<a href="{{ url_for('listar_funcionario') }}?id={{ pessoa.id }}">Editar</a>)</li>
+        {% endfor %}
+    </ul>
+
+    <br>
+    <a href="{{ url_for('home') }}">Voltar para o Menu Principal</a>
+</div>
+{% endblock %}

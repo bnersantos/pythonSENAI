@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    <h1>Excluir Produto</h1>
+
+    <form method="POST" action="{{ url_for('deletar_produtos') }}">
+        <label for="id">Selecione o produto para excluir:</label>
+        <select name="id" id="id">
+            {% for produto in produtos %}
+                <option value="{{ produto.id_produto }}">{{ produto.nome_produto }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Excluir</button>
+    </form>
+
+    <h2>Produtos cadastrados:</h2>
+    <ul>
+        {% for produto in produtos %}
+            <li>{{ produto.nome_produto }} - {{ produto.preco_produto }} <a href="{{ url_for('deletar_produtos', id=produto.id_produto) }}">Excluir</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

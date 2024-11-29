@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="cards_funcionario">
+    <h1>Criar Novo Funcionário</h1>
+
+    <form action="{{ url_for('criar_funcionario') }}" method="POST">
+        <div class="limite">
+            <label for="nome_funcionario">Nome:</label>
+        </div>
+            <input type="text" id="nome_funcionario" name="nome" required><br><br>
+
+
+        <div class="limite">
+            <label for="cpf_funcionario">CPF:</label>
+        </div>
+            <input type="text" id="cpf_funcionario" name="cpf" required><br><br>
+
+
+        <div class="limite">
+            <label for="email_funcionario">Email:</label>
+        </div>
+            <input type="email" id="email_funcionario" name="email" required><br><br>
+
+        <div class="limite">
+            <label for="telefone_funcionario">Telefone:</label>
+        </div>
+            <input type="text" id="telefone_funcionario" name="telefone" required><br><br>
+
+
+        <div class="limite">
+            <label for="cargo_funcionario">Cargo:</label>
+        </div>
+            <input type="text" id="cargo_funcionario" name="cargo" required><br><br>
+
+
+        <div class="vol2">
+            <button type="submit">Criar Funcionário</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

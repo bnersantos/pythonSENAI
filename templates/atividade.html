@@ -1,0 +1,33 @@
+{% extends  'base.html' %}
+
+{% block conteudo %}
+    <div class="cards-container">
+        <div class="cards4 center">
+            <form action="{{url_for('atividade')}}" method="POST">
+                <label for="movimentacao">Tipo de Movimentação:</label>
+                <select id="movimentacao" name="movimentacao">
+                <option value="entrada">Entrada</option>
+                <option value="saida">Saída</option>
+                </select><br><br>
+
+                <label for="data">Data do Movimento:</label><br>
+                <input type="date" name="data" id="data"><br><br>
+
+                <label for="valor">Valor do Movimento:</label><br>
+                <input type="number" name="valor" id="valor"><br><br>
+
+                <label for="volume">Volume do Movimento:</label><br>
+                <input type="number" name="volume" id="volume"><br><br>
+
+                <label for="id_fun">ID Funcionário:</label><br>
+                <input type="number" name="id_fun" id="id_fun"><br><br>
+
+                <label for="id_prod">ID Produto:</label><br>
+                <input type="number" name="id_prod" id="id_prod"><br><br>
+
+                <a href="{{url_for('relatorio')}}"><button>movimentar</button></a>
+                <a href="{{url_for('home')}}"><button>Cancelar</button></a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

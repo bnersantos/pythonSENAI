@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="cards_escolha">
+    <p><a href="{{ url_for ('criar_produtos') }}">Adicionar Produtos</a></p>
+    <p><a href="{{ url_for ('listar_produtos') }}">Listar Produtos</a></p>
+    <p><a href="{{ url_for ('deletar_produtos') }}">Deletar Produtos</a></p>
+    <div class="vol">
+        <a href="{{ url_for ('gerenciamento') }}" class="botao_voltar">Voltar</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>TechStock</title>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo">
+            <img src="/static/img/Logo.png" alt="Logo" class="logo" height="100px" width="100px">
+        </div>
+        <div class="search-div">
+            <form action="{{ url_for('home') }}" method="get" class="search">
+                <input type="search" class="search-bar" placeholder="Buscar...">
+                <img src="/static/img/pesquisa.png" class="imglog_lupa" alt="">
+            </form>
+        </div>
+        <div class="login-button">
+            {% if session.get('user_id') %}
+                <span>Bem vindo(a), {{session.get('username')}}!</span>
+                <a href="{{ url_for('logout') }}"><button>Sair</button></a>
+            {% endif %}
+            <a href="{{ url_for('login') }}"><img src="/static/img/Login.png" alt="User"></a>
+        </div>
+    </header>
+    <nav class="sidebar">
+        <ul class="menu">
+            <li><a href="{{ url_for('home') }}"><img src="/static/img/home.png" class="imglog" alt="">MENU</a></li>
+            <li><a href="{{ url_for('atividade') }}"><img src="/static/img/atividade.png" class="imglog" alt="">ATIVIDADE</a></li>
+            <li><a href="{{ url_for('gerenciamento') }}"><img src="/static/img/gerenciamento.png" class="imglog" alt="">GERENCIAMENTO</a></li>
+            <li><a href="{{ url_for('relatorio') }}"><img src="/static/img/relatorio.png" class="imglog" alt="">RELATÓRIO</a></li>
+        </ul>
+    </nav>
+    <main>
+        {% block conteudo %}
+        {% endblock %}
+    </main>
+</div>
+</body>
+</html>

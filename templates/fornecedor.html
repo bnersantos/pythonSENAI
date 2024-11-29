@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="cards_escolha">
+    <p><a href="{{ url_for ('criar_fornecedor') }}">Adicionar Fornecedores</a></p>
+    <p><a href="{{ url_for ('listar_fornecedor') }}">Listar Fornecedores</a></p>
+    <p><a href="{{ url_for ('deletar_fornecedor') }}">Deletar Fornecedores</a></p>
+    <div class="vol">
+        <a href="{{ url_for ('gerenciamento') }}" class="botao_voltar">Voltar</a>
+    </div>
+</div>
+{% endblock %}

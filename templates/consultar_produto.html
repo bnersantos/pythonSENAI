@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<a href="{{ url_for('produtos') }}" class="btn-voltar">Voltar</a>
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Descrição</th>
+                <th>Validade</th>
+                <th>Garantia</th>
+                <th>Peso</th>
+                <th>Medida</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto, categoria, fornecedor in lista_produtos %}
+            <tr>
+                <td>{{ produto.nome_produto }}</td>
+                <td>R$ {{ produto.preco_produto }}</td>
+                <td>{{ produto.descricao }}</td>
+                <td>{{ produto.validade_produto }}</td>
+                <td>{{ produto.garantia_produto }}</td>
+                <td>{{ produto.peso_produto }} kg</td>
+                <td>{{ produto.medida_produto }}</td>
+                <td>
+                    <a class="btn-edit" href="{{ url_for('editar_produtos', id=produto.id_produto) }}">Editar</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="8">Nenhum produto encontrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+    <!-- Paginação -->
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="{{ url_for('listar_produtos', page=page-1) }}">Anterior</a>
+        {% else %}
+            <span>Anterior</span>
+        {% endif %}
+
+        <span>Página {{ page }} de {{ total_pages }}</span>
+
+        {% if page < total_pages %}
+            <a href="{{ url_for('listar_produtos', page=page+1) }}">Próxima</a>
+        {% else %}
+            <span>Próxima</span>
+        {% endif %}
+    </div>
+
+{% endblock %}
